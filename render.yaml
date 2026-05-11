@@ -1,22 +1,13 @@
 services:
-  # FastAPI Backend
   - type: web
-    name: aqi-backend
+    name: aqi-prediction-system
     runtime: python
-    buildCommand: pip install -r api/requirements.txt
+    buildCommand: |
+      cd frontend && npm install && npm run build && cd ..
+      pip install -r api/requirements.txt
     startCommand: gunicorn -k uvicorn.workers.UvicornWorker api.index:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
       - key: WAQI_API_TOKEN
-        sync: false # User should set this in Render dashboard
-
-  # React Frontend
-  - type: web
-    name: aqi-frontend
-    runtime: static
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: frontend/dist
-    envVars:
-      - key: VITE_API_URL
-        value: https://aqi-backend.onrender.com # Adjust if name changes
+        sync: false
