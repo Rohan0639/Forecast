@@ -192,6 +192,7 @@ def get_dashboard_data():
                 'weather': {
                     'temperature': live_data.get('Temperature', '--'),
                     'humidity': live_data.get('Humidity', '--'),
+                    'wind_speed': live_data.get('Wind_Speed', '--'),
                     'rain': live_data.get('Rainfall', '--')
                 }
             }
