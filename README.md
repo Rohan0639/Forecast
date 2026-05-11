@@ -148,10 +148,6 @@ The FastAPI backend exposes the following primary endpoints:
 
 ---
 
-![Trend Chart View](https://via.placeholder.com/800x450.png?text=Trend+Chart+View)
-
----
-
 ## 🔮 Future Improvements
 
 Based on the current architecture, potential enhancements include:
