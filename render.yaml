@@ -1,13 +1,8 @@
 services:
   - type: web
     name: aqi-prediction-system
-    runtime: python
-    buildCommand: |
-      cd frontend && npm install && npm run build && cd ..
-      pip install -r api/requirements.txt
-    startCommand: gunicorn -k uvicorn.workers.UvicornWorker api.index:app
+    env: docker
+    dockerfilePath: ./Dockerfile
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.10.0
       - key: WAQI_API_TOKEN
         sync: false
