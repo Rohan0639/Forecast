@@ -148,11 +148,6 @@ The FastAPI backend exposes the following primary endpoints:
 
 ---
 
-## 📸 Screenshots
-
-*(Replace placeholders with actual images of the project)*
-
-![Dashboard View](https://via.placeholder.com/800x450.png?text=Dashboard+View)
 ![Trend Chart View](https://via.placeholder.com/800x450.png?text=Trend+Chart+View)
 
 ---
