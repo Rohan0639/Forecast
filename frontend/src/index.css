@@ -136,8 +136,14 @@ body {
   gap: 1.5rem;
 }
 
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
 @media (max-width: 1024px) {
-  .grid-2, .grid-3 {
+  .grid-2, .grid-3, .grid-4 {
     grid-template-columns: 1fr;
   }
 }
