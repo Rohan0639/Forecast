@@ -1,51 +1,64 @@
 # Hyderabad Air Quality Index (AQI) Prediction System
 
+[![React](https://img.shields.io/badge/Frontend-React%2019-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![XGBoost](https://img.shields.io/badge/ML-XGBoost-EBBD3C?style=for-the-badge&logo=xgboost)](https://xgboost.ai/)
+[![Vite](https://img.shields.io/badge/Build-Vite-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 
-
-An AI-powered environmental forecasting system designed to monitor and predict Air Quality Index (AQI) across various monitoring stations in Hyderabad, India. The project integrates real-time data from the WAQI API with high-performance XGBoost models to provide accurate 24-hour forecasts.
+An AI-powered environmental forecasting system designed to monitor and predict Air Quality Index (AQI) across various monitoring stations in Hyderabad, India. This project features a **FastAPI** backend for high-performance data serving and a **React** frontend with premium glassmorphic aesthetics.
 
 ---
-
 
 ## 🌟 Key Features
 
 - **Live Monitoring**: Real-time AQI tracking across multiple Hyderabad stations (Balanagar, HITEC City, Sanathnagar, etc.).
 - **AI Forecasting**: Predicts next-day AQI using station-specific XGBoost regression models.
-- **Interactive Dashboard**: Premium Streamlit-based UI with:
-    - Dynamic entrance animations.
-    - City-wide average summary and trend indicators.
-    - Interactive station map using Folium.
-    - Confidence scores for every prediction.
-- **Automated Data Collection**: Continuous background fetching of live data to improve model accuracy over time.
-- **Offline Reliability**: Fallback mechanisms to global models if station-specific data is unavailable.
+- **Premium Dashboard**: A modern React-based interface featuring:
+    - **Glassmorphic Design**: Sleek, transparent UI elements with vibrant gradients.
+    - **Interactive Maps**: Real-time station visualization using Leaflet.
+    - **Dynamic Charts**: Interactive AQI and temperature trends powered by Recharts.
+    - **Animated UX**: Smooth transitions and entry animations.
+- **RESTful API**: Decoupled backend serving JSON data for predictions, trends, and station metadata.
+- **Automated Data Collection**: Continuous background fetching of live data from the WAQI API.
 
 ---
 
 ## 🏗️ Project Structure
 
 ```text
-AQI DEMO/
-├── dashboard.py           # Main Streamlit dashboard application
-├── train_model.py         # Script to train Global and Station-wise XGBoost models
-├── predict_live.py        # CLI tool for real-time inference
-├── live_data_collector.py  # Service to fetch and store WAQI API data
-├── fetch_live_data.py     # Utility to interface with WAQI API
-├── map_view.py            # Folium map integration for the dashboard
-├── data/                  # Datasets (Historical 10y + Live collected)
-├── models/                # Saved .pkl models (Global & Station-specific)
-├── plots/                 # Performance visualizations (MAE, Feature Importance)
-└── requirements.txt       # Project dependencies
+AQI-PREDICTION-ML/
+├── api/                    # Backend FastAPI application
+│   ├── data/               # Datasets (Historical & Live collected)
+│   ├── models/             # Saved .pkl models (Global & Station-specific)
+│   ├── fetch_live_data.py  # Utility to interface with WAQI API
+│   ├── index.py            # Main FastAPI server entry point
+│   └── requirements.txt    # Python dependencies for the backend
+├── frontend/               # Frontend React + Vite application
+│   ├── src/                # React components, charts, and logic
+│   ├── public/             # Static assets
+│   ├── package.json        # Frontend dependencies
+│   └── vite.config.js      # Vite configuration
+├── README.md               # Project documentation
+└── vercel.json             # Vercel deployment configuration
 ```
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **ML Framework**: XGBoost, Scikit-learn
+### Backend
+- **Framework**: FastAPI
+- **ML Framework**: XGBoost, Scikit-learn, Joblib
 - **Data Handling**: Pandas, NumPy
-- **Dashboard**: Streamlit, Plotly, Folium
 - **API**: World Air Quality Index (WAQI)
-- **Visualization**: Matplotlib, Seaborn, Altair
+
+### Frontend
+- **Framework**: React 19 (Vite)
+- **Styling**: Vanilla CSS (Custom Glassmorphism)
+- **Charts**: Recharts
+- **Maps**: React-Leaflet
+- **Icons**: Lucide React
+- **Data Fetching**: Axios
 
 ---
 
@@ -53,72 +66,53 @@ AQI DEMO/
 
 ### 1. Clone the repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/Rohan0639/aqi-prediction-ml.git
 cd aqi-prediction-ml
 ```
 
-### 2. Install dependencies
+### 2. Backend Setup
+Install Python dependencies:
 ```bash
+cd api
 pip install -r requirements.txt
 ```
+Ensure you have the necessary environment variables set up (e.g., WAQI API token).
 
-### 3. Configure Environment
-Create a `.env` file in the root directory and add your WAQI API Token:
-```env
-WAQI_API_TOKEN=your_token_here
+### 3. Frontend Setup
+Install Node dependencies:
+```bash
+cd frontend
+npm install
 ```
 
 ---
 
-## 🔧 Usage
+## 🔧 Running Locally
 
-### Training Models
-To retrain the global and station-specific models using the latest data:
-```bash
-python train_model.py
-```
+### Development Mode
+To run the project in development mode:
 
-### Running the Dashboard
-Launch the interactive web interface:
-```bash
-streamlit run dashboard.py
-```
+1. **Start Backend**:
+   ```bash
+   cd api
+   python index.py
+   ```
+   The API will be available at `http://localhost:8000`.
 
-### Live Data Collection
-To collect live data, you can run the collector in different modes:
-
-- **Single Fetch**: Collect data once and exit.
-  ```bash
-  python live_data_collector.py --mode once
-  ```
-- **Daily Automation**: Run in the background and fetch data every 24 hours.
-  ```bash
-  python live_data_collector.py --mode daily
-  ```
-- **Hourly Updates**: For high-frequency tracking, fetch every hour.
-  ```bash
-  python live_data_collector.py --mode hourly
-  ```
-
----
-
-## 🌐 Deployment & 24/7 Operation
-
-This project is designed for continuous monitoring. For professional 24/7 deployment:
-- **Process Management**: Use [PM2](https://pm2.keymetrics.io/) to manage the Dashboard and Data Collector processes.
-- **Auto-Restart**: PM2 will automatically restart services if they crash or the server reboots.
-- **Logging**: Use PM2's built-in logging system (`pm2 logs`) to monitor health.
-- **Cloud Hosting**: Recommended for VPS (vultr, AWS, DigitalOcean) for full control over background collectors.
-
-*For detailed instructions, see the [Deployment & Maintenance Guide](.gemini/antigravity/brain/ba8cd5f6-c84e-4cc3-89b5-97fac084c8d3/deployment_guide.md).*
+2. **Start Frontend**:
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+   The frontend will be available at `http://localhost:5173`.
 
 ---
 
 ## 📊 Model Performance
-The global model currently achieves:
-- **Mean Absolute Error (MAE)**: ~6.16
+The XGBoost forecasting engine achieves high accuracy for the Hyderabad region:
+- **Mean Absolute Error (MAE)**: ~6.16 (Global)
 - **R² Score**: ~0.97
-*Individual station models often perform even better with lower MAE.*
+- **Station MAE**: US Consulate (~3.07), HITEC City (~3.70)
 
 ---
 
@@ -128,4 +122,4 @@ This project is for educational and demonstration purposes.
 ---
 
 *Developed with focus on Environmental Intelligence for the city of Hyderabad.*
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=streamlit)](https://rohan0639-aqi-prediction-ml-dashboard-szecpg.streamlit.app/)
+
