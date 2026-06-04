@@ -69,7 +69,7 @@ function App() {
               </div>
             </div>
 
-            <h1 className="premium-title">Atmosphere<span style={{ color: '#38bdf8' }}>.</span>AI</h1>
+            <h1 className="premium-title">AirCast<span style={{ color: '#38bdf8' }}>.</span>AI</h1>
             <div className="premium-subtitle" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <Activity size={18} /> Hyderabad AQI Intelligence
             </div>
