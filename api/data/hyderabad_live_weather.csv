@@ -1,6 +1,4 @@
 Date,Time,Station,Temperature,Humidity,Pressure,Wind_Speed,Wind_Direction_Deg,Wind_Direction_Label,Rainfall
-<<<<<<< HEAD,,,,,,,,,
-=======,,,,,,,,,
 2026-03-17,19:15:12,Balanagar SPCB,24.41,54.0,1011.0,1.97,64.0,NE,0.0
 2026-03-17,19:15:12,HITEC City,23.73,55.0,1011.0,2.2,64.0,NE,0.0
 2026-03-17,19:15:12,IDA Pashamylaram SPCB,23.31,59.0,1012.0,2.4,39.0,NE,0.0
@@ -15,7 +13,6 @@ Date,Time,Station,Temperature,Humidity,Pressure,Wind_Speed,Wind_Direction_Deg,Wi
 2026-03-18,19:14:43,US Consulate,20.25,64.0,1014.0,4.5,126.0,SE,0.0
 2026-03-18,19:14:43,Uppal SPCB,20.74,70.0,1014.0,3.88,122.0,SE,0.0
 2026-03-18,19:14:43,Zoo Park SPCB,20.65,83.0,1014.0,1.54,0.0,N,0.0
->>>>>>> b8455a25f8dda19ff1eb93cd4e1b572787b13294,,,,,,,,,
 2026-03-19,19:10:42,Balanagar SPCB,24.96,48.0,1012.0,4.52,133.0,SE,0.0
 2026-03-19,19:10:42,HITEC City,24.63,47.0,1012.0,4.33,134.0,SE,0.0
 2026-03-19,19:10:42,IDA Pashamylaram SPCB,24.98,45.0,1011.0,3.25,140.0,SE,0.0
@@ -380,3 +377,10 @@ Date,Time,Station,Temperature,Humidity,Pressure,Wind_Speed,Wind_Direction_Deg,Wi
 2026-05-11,04:11:24,US Consulate,28.76,58.0,1012.0,3.6,150.0,SE,0.0
 2026-05-11,04:11:24,Uppal SPCB,29.25,58.0,1012.0,3.6,150.0,SE,0.0
 2026-05-11,04:11:24,Zoo Park SPCB,29.16,58.0,1013.0,3.6,150.0,SE,0.0
+2026-06-04,17:42:47,Balanagar SPCB,34.39,34,1002,4.24,269,W,0.0
+2026-06-04,17:42:47,HITEC City,33.54,36,1003,4.19,278,W,0.0
+2026-06-04,17:42:47,IDA Pashamylaram SPCB,32.4,40,1003,7.22,312,NW,0.0
+2026-06-04,17:42:47,Sanathnagar SPCB,34.39,34,1002,4.24,269,W,0.0
+2026-06-04,17:42:47,US Consulate,33.26,37,1003,4.4,285,W,0.0
+2026-06-04,17:42:47,Uppal SPCB,35.32,33,1002,3.31,220,SW,0.0
+2026-06-04,17:42:47,Zoo Park SPCB,34.82,33,1002,3.11,227,SW,0.0
