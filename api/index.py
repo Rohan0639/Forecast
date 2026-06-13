@@ -4,8 +4,6 @@ import csv
 from datetime import datetime
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
 import numpy as np
@@ -286,17 +284,8 @@ def get_stations():
     return {"status": "success", "data": all_stations}
 
 # ---------------------------------------------------------
-# SERVE FRONTEND (Optional: for unified deployment)
+# ENTRY POINT — for Render (uvicorn) and local development
 # ---------------------------------------------------------
-FRONTEND_DIR = os.path.join(os.path.dirname(BASE_DIR), 'frontend', 'dist')
-
-if os.path.exists(FRONTEND_DIR):
-    app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="static")
-
-    @app.exception_handler(404)
-    async def not_found_handler(request, exc):
-        return FileResponse(os.path.join(FRONTEND_DIR, 'index.html'))
-
 if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("PORT", 8000))
