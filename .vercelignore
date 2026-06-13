@@ -6,3 +6,6 @@ README.md
 sync.bat
 node_modules/
 dist/
+# Exclude Python backend - deployed separately on Render
+api/
+render.yaml
