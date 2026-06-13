@@ -1,6 +1,6 @@
 # 🌌 AirCast: Hyderabad Air Quality Index (AQI) Prediction System
 
-**🔴 Live Production Demo:** [https://aqi-prediction-ml-2.onrender.com/](https://aqi-prediction-ml-2.onrender.com/)
+**🔴 Live Production Demo:** [https://aqi-prediction-ml-nine.vercel.app/](https://aqi-prediction-ml-nine.vercel.app/)
 
 [![React](https://img.shields.io/badge/Frontend-React%2019-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -18,18 +18,7 @@ By integrating live sensor telemetry from the **World Air Quality Index (WAQI)**
 
 ---
 
-## 🛠️ Tech Stack & Architecture
 
-```mermaid
-graph TD
-    A[WAQI API Feed] -->|Live AQI & Weather| B(FastAPI Backend)
-    C[(10-Year Historical CSV)] -->|Historical Trends| B
-    D[(Live AQI History CSV)] -->|Deduplication & Lags| B
-    B -->|XGBoost Inference| E[Predictive Tomorrow's AQI]
-    B -->|REST API Endpoints| F[React 19 Frontend - Vite]
-    F -->|Render Map| G[React Leaflet]
-    F -->|Render Trend Chart| H[Recharts]
-    F -->|Premium Styling| I[Vanilla CSS & Lucide Icons]
 ```
 
 ### **1. Frontend Layer**
