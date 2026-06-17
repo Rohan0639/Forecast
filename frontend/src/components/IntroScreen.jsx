@@ -27,7 +27,7 @@ const IntroScreen = ({ onComplete }) => {
             </span>
           ))}
         </h1>
-        <p id="animated-subtitle">Designed for Hyderabad</p>
+        <p id="animated-subtitle"></p>
         <div className="loader-container">
           <div className="loader-bar"></div>
         </div>
