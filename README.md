@@ -1,6 +1,6 @@
 # 🌌 AirCast: Hyderabad Air Quality Index (AQI) Prediction System
 
-**🔴 Live Production Demo:** [https://aqi-prediction-ml-nine.vercel.app/](https://aqi-prediction-ml-nine.vercel.app/)
+
 
 
 ---
